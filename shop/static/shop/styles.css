@@ -162,6 +162,77 @@ button.ghost {
   border-bottom: 1px solid #e2e8f0;
 }
 
+.uml-card > p {
+  margin-top: 0;
+}
+
+.uml-wrap {
+  overflow-x: auto;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  background: #f8fafc;
+  padding: 12px;
+}
+
+.uml-diagram {
+  display: block;
+  width: 100%;
+  min-width: 960px;
+  height: auto;
+}
+
+.uml-diagram text {
+  fill: #0f172a;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+}
+
+.uml-diagram .title {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.uml-diagram .small {
+  font-size: 14px;
+  fill: #334155;
+}
+
+.uml-diagram .center {
+  text-anchor: middle;
+}
+
+.uml-diagram .system-boundary {
+  fill: #ffffff;
+  stroke: #334155;
+  stroke-width: 2;
+}
+
+.uml-diagram .abusecase {
+  fill: #fee2e2;
+  stroke: #dc2626;
+  stroke-width: 2;
+  stroke-dasharray: 8 4;
+}
+
+.uml-diagram .actor-head {
+  fill: #ffffff;
+  stroke: #475569;
+  stroke-width: 2;
+}
+
+.uml-diagram .actor-line,
+.uml-diagram .association {
+  fill: none;
+  stroke: #475569;
+  stroke-width: 2;
+}
+
+.uml-diagram .note {
+  fill: #fff7ed;
+  stroke: #ea580c;
+  stroke-width: 1.5;
+}
+
 @media (max-width: 900px) {
   .hero,
   .two-cols {

@@ -114,7 +114,7 @@ Authorization: Bearer <access_token>
 2. Login pakai username/password Django
 3. Pilih produk dan checkout
 4. Lihat hasil order di panel output
-5. Buka `http://127.0.0.1:8000/abuse-cases/` untuk melihat skenario penyalahgunaan
+5. Buka `http://127.0.0.1:8000/abuse-cases/` untuk melihat skenario penyalahgunaan + visualisasi UML
 
 ## Error Umum
 
@@ -135,3 +135,4 @@ Authorization: Bearer <access_token>
 - Quantity nol / negatif
 - Akses order milik user lain
 - Manipulasi harga di client
+- Visualisasi UML abuse case tersedia di halaman `/abuse-cases/`
