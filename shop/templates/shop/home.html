@@ -1,0 +1,83 @@
+{% extends "shop/base.html" %}
+
+{% block title %}Home - E-Commerce API{% endblock %}
+
+{% block content %}
+<section class="hero">
+  <div>
+    <span class="badge">Django + DRF + JWT</span>
+    <h2>Frontend praktikum buat login, checkout, dan lihat order.</h2>
+    <p>Login pakai username/password Django, lalu simpan access token untuk checkout dan cek order.</p>
+  </div>
+  <div class="token-box">
+    <div class="label">Status Token</div>
+    <div id="token-status" class="token-status">Belum login</div>
+    <button type="button" class="ghost" id="clear-token-btn">Hapus Token</button>
+  </div>
+</section>
+
+<section class="grid two-cols">
+  <article class="card">
+    <h3>1. Login</h3>
+    <form id="login-form" class="form-stack">
+      <label>Username
+        <input type="text" name="username" placeholder="misal: igan" required>
+      </label>
+      <label>Password
+        <input type="password" name="password" placeholder="password kamu" required>
+      </label>
+      <button type="submit">Ambil Token</button>
+    </form>
+  </article>
+
+  <article class="card">
+    <h3>2. Checkout</h3>
+    <form id="checkout-form" class="form-stack">
+      <label>Product
+        <select name="product_id" required>
+          {% for product in products %}
+            <option value="{{ product.id }}">#{{ product.id }} - {{ product.name }} (Rp{{ product.price|floatformat:0 }})</option>
+          {% empty %}
+            <option value="">Belum ada produk</option>
+          {% endfor %}
+        </select>
+      </label>
+      <label>Quantity
+        <input type="number" name="quantity" min="1" value="2" required>
+      </label>
+      <button type="submit">Checkout</button>
+    </form>
+  </article>
+</section>
+
+<section class="grid two-cols">
+  <article class="card">
+    <h3>3. Cek Order</h3>
+    <form id="order-form" class="form-stack">
+      <label>Order ID
+        <input type="number" name="order_id" min="1" placeholder="1" required>
+      </label>
+      <button type="submit">Lihat Order</button>
+    </form>
+  </article>
+
+  <article class="card">
+    <h3>Output API</h3>
+    <pre id="api-output" class="output">Belum ada response.</pre>
+  </article>
+</section>
+
+<section class="card">
+  <h3>Produk Tersedia</h3>
+  <div class="product-grid">
+    {% for product in products %}
+      <div class="product-item">
+        <strong>#{{ product.id }} {{ product.name }}</strong>
+        <span>Rp{{ product.price|floatformat:0 }}</span>
+      </div>
+    {% empty %}
+      <p>Belum ada produk. Tambahkan dari Django Admin dulu.</p>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

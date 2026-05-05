@@ -1,0 +1,36 @@
+{% extends "shop/base.html" %}
+
+{% block title %}Abuse Cases - E-Commerce API{% endblock %}
+
+{% block content %}
+<section class="hero compact">
+  <div>
+    <span class="badge warning">Abuse Case Lab</span>
+    <h2>Kasus penyalahgunaan yang harus ditolak aplikasi.</h2>
+    <p>Ini buat praktikum keamanan: lihat bagaimana endpoint bereaksi terhadap input buruk atau percobaan bypass.</p>
+  </div>
+</section>
+
+<section class="card">
+  <table class="abuse-table">
+    <thead>
+      <tr>
+        <th>Skenario</th>
+        <th>Serangan</th>
+        <th>Expected Result</th>
+        <th>Alasan Defense</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for case in cases %}
+        <tr>
+          <td>{{ case.name }}</td>
+          <td>{{ case.attack }}</td>
+          <td>{{ case.expected }}</td>
+          <td>{{ case.reason }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</section>
+{% endblock %}
